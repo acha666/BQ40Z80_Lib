@@ -1,6 +1,7 @@
 #ifndef __BQ40Z80_SBS_H
 #define __BQ40Z80_SBS_H
 
+#define BQ40Z80_SBS_ManufacturerAccess 0x00
 #define BQ40Z80_SBS_RemainingCapacityAlarm 0x01
 #define BQ40Z80_SBS_RemainingTimeAlarm 0x02
 #define BQ40Z80_SBS_BatteryMode 0x03
@@ -40,6 +41,7 @@
 #define BQ40Z80_SBS_CellVoltage6 0x3D
 #define BQ40Z80_SBS_CellVoltage5 0x3E
 #define BQ40Z80_SBS_CellVoltage4 0x3F
+#define BQ40Z80_SBS_ManufacturerBlockAccess 0x44
 #define BQ40Z80_SBS_ADC1Read 0x46
 #define BQ40Z80_SBS_ADC2Read 0x47
 #define BQ40Z80_SBS_GPIORead 0x48
