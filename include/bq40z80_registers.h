@@ -48,4 +48,71 @@ typedef struct
     uint16_t cell_power_7;   //!< Cell Power 7. Calculated using Cell Voltage 7 and Cell Current 7 data (cW)
 } DA_STATUS_3;
 
+typedef struct
+{
+    bool iata_cterm; //!< IATA charge control: 1 = Active, 0 = Inactive
+    bool rsvd_30;    //!< Reserved. Do not use.
+    bool emshut;     //!< Emergency FET shutdown: 1 = Active, 0 = Inactive
+    bool cb;         //!< Cell balancing status: 1 = Active, 0 = Inactive
+    bool slpcc;      //!< CC measurement in SLEEP mode: 1 = Active, 0 = Inactive
+    bool slpad;      //!< ADC measurement in SLEEP mode: 1 = Active, 0 = Inactive
+    bool smblcal;    //!< Auto CC calibration
+    bool init;       //!< Initialization after full reset: 1 = Active, 0 = Inactive
+    bool sleepm;     //!< SLEEP mode triggered via command: 1 = Active, 0 = Inactive
+    bool xl;         //!< 400-kHz SMBus mode: 1 = Active, 0 = Inactive
+    bool cal_offset; //!< Calibration output (raw CC offset data)
+    bool cal;        //!< Calibration output (raw ADC and CC data)
+    bool autocalm;   //!< Auto CC Offset calibration by the MAC AutoCCOffset(): 1 = Calibration ongoing, 0 = Calibration completed
+    bool auth;       //!< Authentication in progress: 1 = Active, 0 = Inactive
+    bool led;        //!< LED Display: 1 = Display on, 0 = Display off
+    bool sdm;        //!< Shutdown triggered via command: 1 = Active, 0 = Inactive
+    bool sleep;      //!< SLEEP mode conditions met: 1 = Active, 0 = Inactive
+    bool xchg;       //!< Charging disabled: 1 = Active, 0 = Inactive
+    bool xdsg;       //!< Discharging disabled: 1 = Active, 0 = Inactive
+    bool pf;         //!< PERMANENT FAILURE mode status: 1 = Active, 0 = Inactive
+    bool ss;         //!< SAFETY status: 1 = Active, 0 = Inactive
+    bool sdv;        //!< Shutdown triggered via low battery stack voltage: 1 = Active, 0 = Inactive
+    bool sec1;       //!< SECURITY mode bit 1
+    bool sec0;       //!< SECURITY mode bit 0
+    bool btp_int;    //!< Battery trip point interrupt: 1 = Active, 0 = Inactive
+    bool rsvd_6;     //!< Reserved. Do not use.
+    bool fuse;       //!< Fuse status: 1 = Active, 0 = Inactive
+    bool pdsg;       //!< Pre-discharge FET status: 1 = Active, 0 = Inactive
+    bool pchg;       //!< Precharge FET status: 1 = Active, 0 = Inactive
+    bool chg;        //!< CHG FET status: 1 = Active, 0 = Inactive
+    bool dsg;        //!< DSG FET status: 1 = Active, 0 = Inactive
+    bool pres;       //!< System present low: 1 = Active, 0 = Inactive
+} OPERATION_STATUS;
+
+typedef struct
+{
+    // Charging Status Flags (Bits 23–8)
+    bool rsvd_23; //!< Reserved. Do not use.
+    bool rsvd_22; //!< Reserved. Do not use.
+    bool rsvd_21; //!< Reserved. Do not use.
+    bool rsvd_20; //!< Reserved. Do not use.
+    bool nct;     //!< Near charge termination: 1 = Active, 0 = Inactive
+    bool ccc;     //!< Charging loss compensation: 1 = Active, 0 = Inactive
+    bool cvr;     //!< Charging voltage rate of change: 1 = Active, 0 = Inactive
+    bool ccr;     //!< Charging current rate of change: 1 = Active, 0 = Inactive
+    bool vct;     //!< Charge termination: 1 = Active, 0 = Inactive
+    bool mchg;    //!< Maintenance charge: 1 = Active, 0 = Inactive
+    bool su;      //!< Suspend charge: 1 = Active, 0 = Inactive
+    bool in;      //!< Charge inhibit: 1 = Active, 0 = Inactive
+    bool hv;      //!< High voltage region: 1 = Active, 0 = Inactive
+    bool mv;      //!< Mid voltage region: 1 = Active, 0 = Inactive
+    bool lv;      //!< Low voltage region: 1 = Active, 0 = Inactive
+    bool pv;      //!< Precharge voltage region: 1 = Active, 0 = Inactive
+
+    // Temperature Range Flags (Bits 7–0)
+    bool rsvd_7; //!< Reserved. Do not use.
+    bool ot;     //!< Overtemperature region: 1 = Active, 0 = Inactive
+    bool ht;     //!< High temperature region: 1 = Active, 0 = Inactive
+    bool sth;    //!< Standard temperature high region: 1 = Active, 0 = Inactive
+    bool rt;     //!< Recommended temperature region: 1 = Active, 0 = Inactive
+    bool stl;    //!< Standard temperature low region: 1 = Active, 0 = Inactive
+    bool lt;     //!< Low temperature region: 1 = Active, 0 = Inactive
+    bool ut;     //!< Undertemperature region: 1 = Active, 0 = Inactive
+} CHARGING_STATUS;
+
 #endif

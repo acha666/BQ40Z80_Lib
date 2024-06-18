@@ -2,7 +2,9 @@
 extern "C"
 {
 #endif
+
 #include "bq40z80.h"
+
     BQ40Z80::BQ40Z80(uint8_t i2c_scl_io, uint8_t i2c_sda_io, i2c_port_t i2c_master_num, uint8_t device_address)
     {
         this->DEVICE_ADDRESS = device_address;
@@ -157,11 +159,12 @@ extern "C"
                 break;
             case 7:
                 return da_status_3_data.cell_voltage_7;
-                return;
+                break;
             default:
                 break;
             }
         }
+        return 0;
     }
 
     void BQ40Z80::set_capm(bool val)
